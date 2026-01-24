@@ -1,6 +1,4 @@
-/* =========================
-   RESET + ALAPOK
-========================= */
+
 * {
   box-sizing: border-box;
 }
@@ -25,9 +23,7 @@ body {
   color: #f1f5f9;
 }
 
-/* =========================
-   KÖZPONTI GLASS PANEL
-========================= */
+
 #bekero {
   max-width: 860px;
   margin: 4vh auto;
@@ -236,10 +232,11 @@ textarea:focus {
   100% { transform: translateX(0); }
 }
 
-/* Az osztály, amit majd rásütünk a mezőre */
+
 .shake-error {
   animation: shake 0.3s ease-in-out;
   border: 2px solid #ff4d4d !important;
 }
+
 
 
