@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Adatok begyűjtése
+
     $adatok = [
         "Időpont" => date("Y-m-d H:i:s"),
         "Név" => $_POST['teljes_nev'],
@@ -11,12 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "Üzenet" => str_replace("\n", " ", $_POST['uzenet']) // Sortörések kiszedése
     ];
 
-    // Egy sorba rendezés mentéshez
     $mentendo_sor = implode(" | ", $adatok) . PHP_EOL;
 
-    // Mentés az adatok.txt fájlba
     file_put_contents("adatok.txt", $mentendo_sor, FILE_APPEND);
 
-    // Visszajelzés a felhasználónak
     echo "<script>alert('Sikeres beküldés!'); window.location.href='index.html';</script>";
+
 }
