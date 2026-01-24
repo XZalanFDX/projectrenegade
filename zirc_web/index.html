@@ -134,8 +134,15 @@ document.querySelector('form').addEventListener('submit', async (e) => {
     } catch (error) { alert('Hiba a szerverrel!'); }
 });
 
+
+        const response = await fetch('/.netlify/functions/mentes', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/json' }
+});
         </script>
         
         
 </body>
+
 </html>
