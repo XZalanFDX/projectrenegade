@@ -1,14 +1,14 @@
 const { Client } = require('pg');
 
 exports.handler = async (event) => {
-  // Csak POST kérést fogadunk el
+
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
 
   const data = JSON.parse(event.body);
   
-  // A DATABASE_URL-t a Netlify felületén fogjuk megadni biztonsági okokból
+
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false }
@@ -45,4 +45,5 @@ exports.handler = async (event) => {
       body: JSON.stringify({ error: "Adatbázis hiba történt." })
     };
   }
+
 };
