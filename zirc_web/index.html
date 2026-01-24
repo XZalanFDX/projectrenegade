@@ -18,7 +18,6 @@
         </p>
         <form novalidate>
 
-        <!-- Név bevitele -->
             <label for="teljes-nev">Teljes név:</label>
             <input type="text" id="teljes-nev" placeholder="Vezetéknév Keresztnév"  name="teljes_nev" required>
 
@@ -68,19 +67,19 @@
 
 <br><br>
 
-<!-- Beküldés -->
+
 <button id="bekuldogomb"   type="submit">Beküldés</button> 
         </form>
     </div>
 
     <script>
         function moveFocus(currentInput, nextInputId, maxLength) {
-            // Automatikus fókuszváltás, ha eléri a karakterszámot
+
             if (currentInput.value.length >= maxLength) {
                 document.getElementById(nextInputId).focus();
             }
         
-            // Időintervallum ellenőrzése (példa az évre)
+
             if (currentInput.id === 'year' && currentInput.value.length === 4) {
                 const year = parseInt(currentInput.value);
                 if (year < 1900 || year > 2026) {
@@ -90,16 +89,16 @@
             }
         }
         function validateID(input) {
-    // Csak betűket és számokat enged, automatikusan nagybetűre vált
+
     input.value = input.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
     
-    // Opcionális: Ha kész, ugorhat a következő mezőre
+
     if (input.value.length === 8) {
         console.log("Formátum ellenőrzése...");
     }
 }
 
-  // Extra védelem, hogy csak számokat lehessen beírni és ne legyen "e" betű
+
   document.querySelectorAll('input[type="number"]').forEach(input => {
     input.addEventListener('keydown', (e) => {
       if (['e', 'E', '+', '-', '.'].includes(e.key)) {
@@ -112,7 +111,7 @@
     element.classList.add('shake-error');
     setTimeout(() => {
         element.classList.remove('shake-error');
-    }, 300); // 0.3 másodperc után leveszi az osztályt
+    }, 300); 
 }
 
 document.querySelector('form').addEventListener('submit', async (e) => {
@@ -138,4 +137,5 @@ document.querySelector('form').addEventListener('submit', async (e) => {
         
         
 </body>
+
 </html>
