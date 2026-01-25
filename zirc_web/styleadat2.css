@@ -30,10 +30,10 @@ body {
   padding: 2rem 2rem;
 
   background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
-  border-radius: 28px;
+  border-radius: 21px;
 
   box-shadow:
     0 40px 90px rgba(0, 0, 0, 0.35),
@@ -237,6 +237,7 @@ textarea:focus {
   animation: shake 0.3s ease-in-out;
   border: 2px solid #ff4d4d !important;
 }
+
 
 
 
