@@ -13,7 +13,7 @@ body {
       rgba(10, 18, 35, 0.45),
       rgba(10, 18, 35, 0.75)
     ),
-    url("hatter3.png");
+    url("hatter.png");
 
   background-size: cover;
   background-position: center;
@@ -30,8 +30,8 @@ body {
   padding: 2rem 2rem;
 
   background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 
   border-radius: 28px;
 
@@ -237,6 +237,7 @@ textarea:focus {
   animation: shake 0.3s ease-in-out;
   border: 2px solid #ff4d4d !important;
 }
+
 
 
 
