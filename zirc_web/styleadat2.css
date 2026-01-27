@@ -251,5 +251,74 @@ textarea:focus {
 
 
 
+#aszf-open {
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 500;
+  color: #43f578;
+}
+
+#aszf-open:hover {
+  opacity: 0.85;
+}
+
+
+#aszf-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 10, 25, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 9999;
+}
+
+#aszf-modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+.aszf-box {
+  width: min(92%, 700px);
+  max-height: 80vh;
+  background: rgba(255, 255, 255, 0.562);
+  backdrop-filter: blur(30px);
+  border-radius: 28px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.45);
+  color: #0f172a;
+}
+
+
+#aszf-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  border: none;
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+#aszf-close:hover {
+  opacity: 1;
+}
+
+
+.aszf-content {
+  margin-top: 1rem;
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 8px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
 
 
