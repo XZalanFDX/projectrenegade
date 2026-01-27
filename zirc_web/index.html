@@ -35,7 +35,7 @@
             <label for="email-cim">E-mail cím:</label>
             <input type="email" id="email-cim" placeholder="pelda@email.hu" name="email" required>
         <br><br>
-            <label for="uzenet-szoveg">Kapcsolatfelvétel vagy ügyintézés oka: (max 1000 karakter):</label><br>
+            <label for="uzenet-szoveg">Kapcsolatfelvétel vagy ügyintézés oka:</label><br>
             <textarea id="uzenet-szoveg" maxlength="1000" rows="5" cols="60" oninput="document.getElementById('szamlalo').innerText = this.value.length"  name="uzenet" required></textarea>
         <br><br>
             <span>Karakterszám: <span id="szamlalo">0</span> / 1000</span>
@@ -108,6 +108,7 @@ document.querySelector('form').addEventListener('submit', async (e) => {
 </body>
 
 </html>
+
 
 
 
