@@ -8,12 +8,74 @@
     <link rel="icon" type="image/x-icon" href="icon.png">
 </head>
 <body>
+    <div id="aszf-modal">
+  <div class="aszf-box">
+    <button id="aszf-close">✕</button>
+
+    <h2>Általános Szerződési Feltételek</h2>
+
+    <div class="aszf-content">
+        <p><strong>Zirc Polgármesteri Hivatal – online bejelentési felület</strong></p>
+        <p>Érvényes: 2026. Január 27.-től </p>
+        <h2>A Szolgáltató adatai</h2>
+        <ul>
+            <li>Név: Zirc Polgármesteri Hivatal</li>
+            <li>Székhely: 8420 Zirc</li>
+            <li>Elérhetőség: a hivatal hivatalos elérhetőségei</li>
+            <li>Üzemeltető: Zirc Polgármesteri Hivatal</li>
+        </ul>
+        <h2>A Szolgáltatás célja(i)</h2>
+        <p>A Szolgáltatás célja, hogy a Felhasználók elektronikusan, előzetes adategyeztetés keretében kapcsolatba léphessenek a Polgármesteri Hivatallal, illetve ügyintézési vagy tájékoztatási célú bejelentést tegyenek. <br>
+        A Szolgáltatás nem minősül teljes körű elektronikus ügyintézésnek, kizárólag előzetes kapcsolatfelvételt és adatrögzítést szolgál.</p>
+        <h2>A Felhasználó kötelezettségei</h2>
+        <p>A Felhasználó vállalja, hogy:</p>
+        <ul>
+            <li>valós, pontos és aktuális adatokat ad meg;</li>
+            <li>más személy adatait kizárólag jogszerű felhatalmazás birtokában rögzíti;</li>
+            <li>nem él vissza a Szolgáltatás használatával;</li>
+            <li>nem küld jogsértő, megtévesztő vagy obszcén tartalmat.</li>
+        </ul>
+        <p>A Szolgáltató fenntartja a jogot a jogsértő vagy nem rendeltetésszerű használatból származó bejelentések figyelmen kívül hagyására.</p>
+        <h2>Adatkezelés és adatbiztonság</h2>
+        <p>A Szolgáltatás használata során megadott személyes adatok kezelése az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) szerint történik.</p>
+        <h3>Kezelt adatok köre</h3>
+        <ul>
+            <li>teljes név</li>
+            <li>születési idő</li>
+            <li>lakcím</li>
+            <li>telefonszám</li>
+            <li>e-mail cím</li>
+            <li>az üzenet tartalma</li>
+        </ul>
+        <h3>Adattárolás</h3>
+        <p>A rögzített adatok biztonságos, felhőalapú adatbázisban kerülnek tárolásra. A Szolgáltatás Neon technológián alapuló PostgreSQL adatbázist használ, amely megfelel a korszerű adatbiztonsági követelményeknek. <br>
+        A Szolgáltató minden ésszerű technikai és szervezési intézkedést megtesz az adatok védelme érdekében.</p>
+        <h3>Adattovábbítás</h3>
+        <p>A megadott adatokat a Szolgáltató harmadik fél részére nem továbbítja, kivéve jogszabályi kötelezettség esetén.</p>
+        <h2>Felelősség korlátozása</h2>
+        <p>A Szolgáltató nem vállal felelősséget:</p>
+        <ul>
+            <li>az internetkapcsolat hibájából eredő adatvesztésért;</li>
+            <li>technikai leállásból vagy karbantartásból eredő elérhetetlenségért;</li>
+            <li>a Felhasználó által pontatlanul megadott adatok következményeiért.</li>
+        </ul>
+        <h2>A Szolgáltatás módosítása és megszüntetése</h2>
+        <p>A Szolgáltató jogosult a Szolgáltatás tartalmát, működését vagy jelen ÁSZF-et egyoldalúan módosítani. <br> A módosítások a felületen történő közzététellel lépnek hatályba.
+        </p>
+        <h2>Irányadó jog</h2>
+        <p>Jelen ÁSZF-re Magyarország jogszabályai az irányadóak.</p>
+        <h2>Kapcsolat</h2>
+        <p>A Szolgáltatással kapcsolatos kérdések vagy észrevételek a Polgármesteri Hivatal hivatalos elérhetőségein jelezhetők.</p>
+    </div>
+  </div>
+</div>
     <div id="bekero">
         <h1>Zirc Polgármesteri Hivatal – online bejelentés</h1>
         <p id="szoveg1">
-            A várakozásmentes, gyors ügyintézés érdekében kérjük, végezze el az előzetes adategyeztetést. <br>
-            A beküldés gomb megnyomásával automatikusan elfogdja az ÁSZF-et! 
-        </p>
+    A várakozásmentes, gyors ügyintézés érdekében kérjük, végezze el az előzetes adategyeztetést. <br>
+    A beküldés gomb megnyomásával elfogadja az
+    <span id="aszf-open">Általános Szerződési Feltételeket</span>.
+</p>
         <form novalidate>
             <label for="teljes-nev">Teljes név:</label>
             <input type="text" id="teljes-nev" placeholder="Vezetéknév Keresztnév"  name="teljes_nev" required>
@@ -105,6 +167,31 @@ document.querySelector('form').addEventListener('submit', async (e) => {
         } else { alert('Hiba történt!'); }
     } catch (error) { alert('Hiba a szerverrel!'); }
 });
+
+
+ const aszfModal = document.getElementById("aszf-modal");
+  const aszfOpen = document.getElementById("aszf-open");
+  const aszfClose = document.getElementById("aszf-close");
+
+  aszfOpen.onclick = () => {
+    aszfModal.classList.add("active");
+  };
+
+  aszfClose.onclick = () => {
+    aszfModal.classList.remove("active");
+  };
+
+  aszfModal.onclick = (e) => {
+    if (e.target === aszfModal) {
+      aszfModal.classList.remove("active");
+    }
+  };
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      aszfModal.classList.remove("active");
+    }
+  });
 
         </script>
 </body>
