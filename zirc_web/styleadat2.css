@@ -331,6 +331,12 @@ textarea:focus {
 }
 
 
+#ugyfelsz {
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 500;
+  color: #43f578;
+}
 
 
 
