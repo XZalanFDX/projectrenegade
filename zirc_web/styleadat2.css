@@ -293,8 +293,8 @@ textarea:focus {
   max-width: 860px;
   padding: 2rem 2rem;
   background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   box-shadow:
     0 40px 90px rgba(0, 0, 0, 0.35),
     inset 0 0 0 1px rgba(255, 255, 255, 0.25);
@@ -329,6 +329,7 @@ textarea:focus {
   line-height: 1.55;
   
 }
+
 
 
 
