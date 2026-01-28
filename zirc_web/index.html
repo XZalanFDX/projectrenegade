@@ -113,7 +113,7 @@
         document.getElementById(nextInputId).focus();
     }
 
-    // Ha az év mezőt töltötték ki → életkor ellenőrzés
+   
     if (currentInput.id === 'year' && currentInput.value.length === 4) {
         checkAge();
     }
@@ -121,7 +121,7 @@
 
 function checkAge() {
     const day = parseInt(document.getElementById("day").value, 10);
-    const month = parseInt(document.getElementById("month").value, 10) - 1; // JS hónap 0-based
+    const month = parseInt(document.getElementById("month").value, 10) - 1; 
     const year = parseInt(document.getElementById("year").value, 10);
 
     if (!day || !month + 1 || !year) return;
@@ -230,6 +230,7 @@ document.querySelector('form').addEventListener('submit', async (e) => {
 </body>
 
 </html>
+
 
 
 
