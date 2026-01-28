@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zirc Polgármesteri Hivatal online bejelentője</title>
+    <link rel="stylesheet" href="styleadat2.css">
+    <link rel="icon" type="image/x-icon" href="icon.png">
+</head>
+<body>
+    <div id="aszf-modal">
+  <div class="aszf-box">
+    <button id="aszf-close">✕</button>
+
+    <h2>Általános Szerződési Feltételek</h2>
+
+    <div class="aszf-content">
+        <p><strong>Zirc Polgármesteri Hivatal – online bejelentési felület</strong></p>
+        <p>Érvényes: 2026. Január 27.-től </p>
+        <h2>A Szolgáltató adatai</h2>
+        <ul>
+            <li>Név: Zirc Polgármesteri Hivatal</li>
+            <li>Székhely: 8420 Zirc</li>
+            <li>Elérhetőség: a hivatal hivatalos elérhetőségei</li>
+            <li>Üzemeltető: Zirc Polgármesteri Hivatal</li>
+        </ul>
+        <h2>A Szolgáltatás célja(i)</h2>
+        <p>A Szolgáltatás célja, hogy a Felhasználók elektronikusan, előzetes adategyeztetés keretében kapcsolatba léphessenek a Polgármesteri Hivatallal, illetve ügyintézési vagy tájékoztatási célú bejelentést tegyenek. <br>
+        A Szolgáltatás nem minősül teljes körű elektronikus ügyintézésnek, kizárólag előzetes kapcsolatfelvételt és adatrögzítést szolgál.</p>
+        <h2>A Felhasználó kötelezettségei</h2>
+        <p>A Felhasználó vállalja, hogy:</p>
+        <ul>
+            <li>valós, pontos és aktuális adatokat ad meg;</li>
+            <li>más személy adatait kizárólag jogszerű felhatalmazás birtokában rögzíti;</li>
+            <li>nem él vissza a Szolgáltatás használatával;</li>
+            <li>nem küld jogsértő, megtévesztő vagy obszcén tartalmat.</li>
+        </ul>
+        <p>A Szolgáltató fenntartja a jogot a jogsértő vagy nem rendeltetésszerű használatból származó bejelentések figyelmen kívül hagyására.</p>
+        <h2>Adatkezelés és adatbiztonság</h2>
+        <p>A Szolgáltatás használata során megadott személyes adatok kezelése az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) szerint történik.</p>
+        <h3>Kezelt adatok köre</h3>
+        <ul>
+            <li>teljes név</li>
+            <li>születési idő</li>
+            <li>lakcím</li>
+            <li>telefonszám</li>
+            <li>e-mail cím</li>
+            <li>az üzenet tartalma</li>
+        </ul>
+        <h3>Adattárolás</h3>
+        <p>A rögzített adatok biztonságos, felhőalapú adatbázisban kerülnek tárolásra. A Szolgáltatás Neon technológián alapuló PostgreSQL adatbázist használ, amely megfelel a korszerű adatbiztonsági követelményeknek. <br>
+        A Szolgáltató minden ésszerű technikai és szervezési intézkedést megtesz az adatok védelme érdekében.</p>
+        <h3>Adattovábbítás</h3>
+        <p>A megadott adatokat a Szolgáltató harmadik fél részére nem továbbítja, kivéve jogszabályi kötelezettség esetén.</p>
+        <h2>Felelősség korlátozása</h2>
+        <p>A Szolgáltató nem vállal felelősséget:</p>
+        <ul>
+            <li>az internetkapcsolat hibájából eredő adatvesztésért;</li>
+            <li>technikai leállásból vagy karbantartásból eredő elérhetetlenségért;</li>
+            <li>a Felhasználó által pontatlanul megadott adatok következményeiért.</li>
+        </ul>
+        <h2>A Szolgáltatás módosítása és megszüntetése</h2>
+        <p>A Szolgáltató jogosult a Szolgáltatás tartalmát, működését vagy jelen ÁSZF-et egyoldalúan módosítani. <br> A módosítások a felületen történő közzététellel lépnek hatályba.
+        </p>
+        <h2>Irányadó jog</h2>
+        <p>Jelen ÁSZF-re Magyarország jogszabályai az irányadóak.</p>
+        <h2>Kapcsolat</h2>
+        <p>A Szolgáltatással kapcsolatos kérdések vagy észrevételek a Polgármesteri Hivatal hivatalos elérhetőségein jelezhetők. <a id="ugyfelsz" href="mailto:zircugyfelszolgalat@zirc.hu">Ügyfélszolgálat</a>   </p>
+    </div>
+  </div>
+</div>
+    <div id="bekero">
+        <h1>Zirc Polgármesteri Hivatal – online bejelentés</h1>
+        <p id="szoveg1">
+    A várakozásmentes, gyors ügyintézés érdekében kérjük, végezze el az előzetes adategyeztetést. <br>
+    A beküldés gomb megnyomásával elfogadja az
+    <span id="aszf-open">Általános Szerződési Feltételeket</span>.
+</p>
+        <form novalidate>
+            <label for="teljes-nev">Teljes név:</label>
+            <input type="text" id="teljes-nev" placeholder="Vezetéknév Keresztnév"  name="teljes_nev" required>
+        <br><br>
+         <label for="szuletes-ev">Születési idő:</label>
+            <input type="text" inputmode="numeric" id="szuletes-ev" placeholder="ÉÉÉÉ"   name="szu_ev" required oninput="this.value=this.value.replace(/[^0-9]/g,''); if(this.value > 2027) this.value = 2027; if(this.value.length >= 4) { this.value = this.value.slice(0,4); document.getElementById('szuletes-honap').focus(); }">
+            <input type="text" inputmode="numeric" id="szuletes-honap" placeholder="HH" name="szu_honap" required oninput="this.value=this.value.replace(/[^0-9]/g,''); if(this.value > 12) this.value = 12; if(this.value.length >= 2) { this.value = this.value.slice(0,2); document.getElementById('szuletes-nap').focus(); }">
+            <input type="text" inputmode="numeric" id="szuletes-nap" placeholder="NN" name="szu_nap" required oninput="this.value=this.value.replace(/[^0-9]/g,''); if(this.value > 31) this.value = 31; if(this.value.length >= 2) { this.value = this.value.slice(0,2); document.getElementById('lakcim-iranyitoszam').focus(); }">
+        <br><br>
+            <label for="lakcim-iranyitoszam">Lakcím:</label>
+            <input type="text" inputmode="numeric" name="iranyitoszam" required pattern="[0-9]*" id="lakcim-iranyitoszam" placeholder="Irányítószám" oninput="if(this.value.length >= 4) { this.value = this.value.slice(0,4); document.getElementById('lakcim-varos').focus(); }" value="8420">
+            <input type="text" id="lakcim-varos" placeholder="Város" value="Zirc" name="varos" required>
+            <input type="text" id="lakcim-utca" placeholder="Utca, hsz., em./ajtó" size="40" name="utca" required>
+        <br><br>
+            <label for="tel-korzet">Telefonszám:</label>
+            <input type="text" id="tel-orszag" value="+36" size="3" readonly>
+            <input type="text" inputmode="numeric"  name="tel_korzet" required pattern="[0-9]*" id="tel-korzet" placeholder="30" oninput="if(this.value.length >= 2) { this.value = this.value.slice(0,2); document.getElementById('tel-szam').focus(); }">
+            <input type="text" inputmode="numeric"  name="tel_szam" required pattern="[0-9]*" id="tel-szam" placeholder="1234567" oninput="if(this.value.length >= 7) this.value = this.value.slice(0,7)">
+        <br><br>
+            <label for="email-cim">E-mail cím:</label>
+            <input type="email" id="email-cim" placeholder="pelda@email.hu" name="email" required>
+        <br><br>
+            <label for="uzenet-szoveg">Kapcsolatfelvétel vagy ügyintézés oka:</label><br>
+            <textarea id="uzenet-szoveg" maxlength="1000" rows="5" cols="60" oninput="document.getElementById('szamlalo').innerText = this.value.length"  name="uzenet" required></textarea>
+        <br>
+            <span>Karakterszám: <span id="szamlalo">0</span> / 1000</span>
+        <br>
+            <button id="bekuldogomb"   type="submit">Beküldés</button> 
+        </form>
+    </div>
+
+    <script>
+       function moveFocus(currentInput, nextInputId, maxLength) {
+    if (currentInput.value.length >= maxLength && nextInputId) {
+        document.getElementById(nextInputId).focus();
+    }
+
+    // Ha az év mezőt töltötték ki → életkor ellenőrzés
+    if (currentInput.id === 'year' && currentInput.value.length === 4) {
+        checkAge();
+    }
+}
+
+function checkAge() {
+    const day = parseInt(document.getElementById("day").value, 10);
+    const month = parseInt(document.getElementById("month").value, 10) - 1; // JS hónap 0-based
+    const year = parseInt(document.getElementById("year").value, 10);
+
+    if (!day || !month + 1 || !year) return;
+
+    const birthDate = new Date(year, month, day);
+    const today = new Date();
+
+    if (birthDate > today || year < 1900) {
+        alert("Érvénytelen születési dátum.");
+        resetDateInputs();
+        return;
+    }
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (
+        monthDiff < 0 ||
+        (monthDiff === 0 && today.getDate() < birthDate.getDate())
+    ) {
+        age--;
+    }
+
+    if (age < 18) {
+        alert("Panaszt csak 18. életévüket betöltött személyek nyújthatnak be.");
+        resetDateInputs();
+    }
+}
+
+function resetDateInputs() {
+    document.getElementById("day").value = "";
+    document.getElementById("month").value = "";
+    document.getElementById("year").value = "";
+    document.getElementById("day").focus();
+}
+
+function formatInput(input) {
+    input.value = input.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    
+    if (input.value.length === 8) {
+        console.log("Formátum ellenőrzése...");
+    }
+}
+
+
+  document.querySelectorAll('input[type="number"]').forEach(input => {
+    input.addEventListener('keydown', (e) => {
+      if (['e', 'E', '+', '-', '.'].includes(e.key)) {
+        e.preventDefault();
+      }
+    });
+  });
+
+  function errorShake(element) {
+    element.classList.add('shake-error');
+    setTimeout(() => {
+        element.classList.remove('shake-error');
+    }, 300); 
+}
+
+document.querySelector('form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+        const response = await fetch('/.netlify/functions/mentes', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        if (response.ok) {
+            alert('Sikeres beküldés! Nemsokára felvesszük Önnel a kapcsolatot! Köszönjük türelmét!');
+            e.target.reset();
+        } else { alert('Hiba történt! 500-as hibakód!'); }
+    } catch (error) { alert('Hiba a szerverrel! Próbálja újra később vagy forduljon az ügyfélszolgálat felé!'); }
+});
+
+
+ const aszfModal = document.getElementById("aszf-modal");
+  const aszfOpen = document.getElementById("aszf-open");
+  const aszfClose = document.getElementById("aszf-close");
+
+  aszfOpen.onclick = () => {
+    aszfModal.classList.add("active");
+  };
+
+  aszfClose.onclick = () => {
+    aszfModal.classList.remove("active");
+  };
+
+  aszfModal.onclick = (e) => {
+    if (e.target === aszfModal) {
+      aszfModal.classList.remove("active");
+    }
+  };
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      aszfModal.classList.remove("active");
+    }
+  });
+
+        </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
