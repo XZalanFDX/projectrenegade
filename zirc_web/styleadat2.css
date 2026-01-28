@@ -338,6 +338,12 @@ textarea:focus {
   color: #8400ff;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  body {
+    overflow: hidden;
+  }
+}
+
 
 
 
