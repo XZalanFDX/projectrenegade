@@ -69,7 +69,7 @@ textarea {
   width: 100%;
   padding: 0.7rem 0.95rem;
 
-  border-radius: 18px;
+  border-radius: 22px;
   border: none;
   outline: none;
 
@@ -337,6 +337,7 @@ textarea:focus {
   font-weight: 500;
   color: #8400ff;
 }
+
 
 
 
