@@ -33,8 +33,8 @@ body {
   padding: 2rem 2rem;
 
   background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 
   border-radius: 40px;
 
@@ -337,6 +337,7 @@ textarea:focus {
   font-weight: 500;
   color: #8400ff;
 }
+
 
 
 
