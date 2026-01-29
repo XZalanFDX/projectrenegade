@@ -338,6 +338,57 @@ textarea:focus {
   color: #8400ff;
 }
 
+#adatvedelmi-igenyles {
+  margin-top: 1rem;
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 0;
+  color: #e5e7eb;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding-left: 12px;
+}
+
+#adatvedelmi-igenyles input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #818cf8;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#adatvedelmi-igenyles label {
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #e5e7eb;
+}
+
+#adatvedelmi-igenyles a {
+  color: #a78bfa;
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#adatvedelmi-igenyles a:hover {
+  text-decoration: underline;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
 
 
 
