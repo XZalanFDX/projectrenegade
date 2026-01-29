@@ -118,8 +118,24 @@ Az adatkezeléssel kapcsolatos kérdések és kérelmek az alábbi e-mail címen
 </p>
 
 <p>
-<a href="mailto:polgarmesterihivatalugyintezes@zirc.hu">
-  <button type="button">E-mail írása az ügyintézéshez</button>
+<a href="mailto:polgarmesterihivatalugyintezes@zirc.hu" style="text-decoration: none;">
+  <button type="button"
+    style="
+      background: #1e3a8a;
+      color: #ffffff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
+    "
+    onmouseover="this.style.background='#1e40af'; this.style.transform='translateY(-1px)'"
+    onmouseout="this.style.background='#1e3a8a'; this.style.transform='translateY(0)'"
+  >
+    E-mail írása az ügyintézéshez
+  </button>
 </a>
 </p>
     </div>
@@ -286,6 +302,7 @@ document.querySelector('form').addEventListener('submit', async (e) => {
 </body>
 
 </html>
+
 
 
 
