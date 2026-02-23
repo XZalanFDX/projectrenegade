@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adatkezelési Tájékoztató - Zirc Polgármesteri Hivatal</title>
+    <link rel="icon" type="image/x-icon" href="cimer.png">
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #1e40af;
+            --text-dark: #1f2937;
+            --bg-light: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        header {
+            border-bottom: 3px solid var(--primary-blue);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        h1 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            font-size: 1.4rem;
+            margin-top: 30px;
+            border-left: 4px solid var(--primary-blue);
+            padding-left: 15px;
+        }
+
+        .meta-info {
+            background: #eff6ff;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .btn-contact {
+            background: var(--primary-blue);
+            color: #ffffff;
+            border: none;
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-contact:hover {
+            background: var(--secondary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 40px;
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--primary-blue);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                padding: 25px;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Adatkezelési Tájékoztató</h1>
+        <img src="cimer.png" alt="Zirc Címer" style="height: 50px;">
+    </header>
+
+    <div class="meta-info">
+        <strong>Zirc Polgármesteri Hivatal – online bejelentési felület</strong><br>
+        Érvényes: <span class="highlight">2026. január 27-től</span>
+    </div>
+
+    <p>Jelen adatkezelési tájékoztató a Zirc Polgármesteri Hivatal által üzemeltetett online bejelentési felülethez kapcsolódó személyes adatok kezelésére vonatkozik.</p>
+
+    <h2>1. Az adatkezelő adatai</h2>
+    <p>
+        <span class="highlight">Név:</span> Zirc Polgármesteri Hivatal<br>
+        <span class="highlight">Székhely:</span> 8420 Zirc, Március 15. tér 1.<br>
+        <span class="highlight">Elérhetőség:</span> Hivatalos hivatali csatornákon keresztül
+    </p>
+
+    <h2>2. Az adatkezelés célja</h2>
+    <p>A személyes adatok kezelése annak érdekében történik, hogy az érintettek elektronikus úton kapcsolatba léphessenek a Zirc Polgármesteri Hivatallal, ügyintézési vagy tájékoztatási célú bejelentést tehessenek.</p>
+    <p><em>Fontos: Az online felület kizárólag előzetes kapcsolatfelvételt és adatrögzítést szolgál, nem minősül teljes körű elektronikus ügyintézésnek.</em></p>
+
+    <h2>3. Az adatkezelés jogalapja</h2>
+    <p>Az adatkezelés jogalapja a GDPR 6. cikk (1) bekezdés c) pontja (jogi kötelezettség teljesítése), illetve e) pontja (közérdekű feladat ellátása).</p>
+
+    <h2>4. A kezelt személyes adatok köre</h2>
+    <ul>
+        <li>Teljes név</li>
+        <li>Születési idő</li>
+        <li>Lakcím</li>
+        <li>Telefonszám</li>
+        <li>E-mail cím</li>
+        <li>Bejelentés/üzenet tartalma</li>
+    </ul>
+
+    <h2>5. Adattárolás és biztonság</h2>
+    <p>A személyes adatok biztonságos, felhőalapú adatbázisban kerülnek tárolásra. A rendszer <span class="highlight">PostgreSQL</span> technológiát használ, amely megfelel a legmagasabb adatbiztonsági követelményeknek. Az adatkezelő minden technikai intézkedést megtesz a jogosulatlan hozzáférés ellen.</p>
+
+    <h2>6. Az érintettek jogai</h2>
+    <p>Ön tájékoztatást kérhet adatai kezeléséről, kérheti azok helyesbítését, korlátozását vagy törlését a jogszabályi kereteken belül. Jogosult továbbá panasszal élni a Nemzeti Adatvédelmi és Információszabadság Hatóságnál (NAIH).</p>
+
+    <h2>Kapcsolatfelvétel</h2>
+    <p>Az adatkezeléssel kapcsolatos kérdéseit az alábbi gombra kattintva jelezheti közvetlenül ügyintézőnknek:</p>
+    
+    <a href="mailto:polgarmesterihivatalugyintezes@zirc.hu" class="btn-contact">
+        Kapcsolatfelvétel egy ügyintézővel
+    </a>
+
+    <a href="javascript:history.back()" class="back-link">← Vissza a bejelentő felületre</a>
+</div>
+
+</body>
+</html>
