@@ -8,164 +8,144 @@
     <link rel="icon" type="image/x-icon" href="icon.png">
 </head>
 <body>
-    <div id="aszf-modal">
-        <div class="aszf-box">
-            <button id="aszf-close">✕</button>
-            <h2>Általános adatkezelési tájékoztató</h2>
-            <div class="aszf-content">
-                </div>
+    <div id="aszf-modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(5px);">
+        <div class="aszf-box" style="background: white; margin: 5% auto; padding: 30px; width: 70%; max-height: 80%; overflow-y: auto; border-radius: 15px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            <button id="aszf-close" style="position: absolute; right: 20px; top: 20px; cursor: pointer; border: none; background: #eee; border-radius: 50%; width: 30px; height: 30px;">✕</button>
+            <div id="modal-text-content">
+                <h2>Általános adatkezelési tájékoztató</h2>
+                <p><strong>Zirc Polgármesteri Hivatal</strong></p>
+                <p>Jelen tájékoztató a GDPR előírásainak megfelelően szabályozza az online bejelentő felületen megadott személyes adatok kezelését.</p>
+                <p>Az adatokat kizárólag ügyintézés céljából, a törvényi megőrzési ideig tároljuk a PostgreSQL adatbázisunkban.</p>
+            </div>
         </div>
     </div>
 
     <div id="bekero">
         <h1>Zirc Polgármesteri Hivatal – online bejelentés</h1>
         <p id="szoveg1">
-            A várakozásmentes, gyors ügyintézés érdekében kérjük, végezze el az előzetes adategyeztetést. <br>
-            <span id="aszf-open" style="cursor:pointer; text-decoration:underline;">Az Általános adatkezelési tájékoztatót itt éri el</span>.
+            A várakozásmentes ügyintézéshez kérjük, töltse ki az alábbi mezőket. <br>
+            <span id="aszf-open" style="color: #1e3a8a; text-decoration: underline; cursor: pointer; font-weight: 600;">Adatkezelési tájékoztató megnyitása</span>.
         </p>
         
-        <form novalidate>
+        <form id="main-form" novalidate>
             <label for="teljes-nev">Teljes név:</label>
-            <input type="text" id="teljes-nev" placeholder="Vezetéknév Keresztnév" name="teljes_nev" required>
+            <input type="text" id="teljes-nev" name="teljes_nev" placeholder="Vezetéknév Keresztnév" required>
             <br><br>
 
-            <label for="szuletes-ev">Születési idő:</label>
-            <input type="text" inputmode="numeric" id="szuletes-ev" placeholder="ÉÉÉÉ" name="szu_ev" required 
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); if(this.value.length >= 4) { this.value = this.value.slice(0,4); document.getElementById('szuletes-honap').focus(); }">
-            
-            <input type="text" inputmode="numeric" id="szuletes-honap" placeholder="HH" name="szu_honap" required 
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); if(this.value.length >= 2) { this.value = this.value.slice(0,2); document.getElementById('szuletes-nap').focus(); }">
-            
-            <input type="text" inputmode="numeric" id="szuletes-nap" placeholder="NN" name="szu_nap" required 
-                oninput="this.value=this.value.replace(/[^0-9]/g,''); if(this.value.length >= 2) { this.value = this.value.slice(0,2); document.getElementById('lakcim-iranyitoszam').focus(); }">
+            <label>Születési idő:</label>
+            <input type="text" inputmode="numeric" id="szu_ev" name="szu_ev" placeholder="ÉÉÉÉ" required maxlength="4" style="width: 60px;">
+            <input type="text" inputmode="numeric" id="szu_honap" name="szu_honap" placeholder="HH" required maxlength="2" style="width: 40px;">
+            <input type="text" inputmode="numeric" id="szu_nap" name="szu_nap" placeholder="NN" required maxlength="2" style="width: 40px;">
             <br><br>
 
-            <label for="lakcim-iranyitoszam">Lakcím:</label>
-            <input type="text" inputmode="numeric" name="iranyitoszam" required id="lakcim-iranyitoszam" placeholder="Irányítószám" value="8420" oninput="if(this.value.length >= 4) document.getElementById('lakcim-varos').focus();">
-            <input type="text" id="lakcim-varos" placeholder="Város" value="Zirc" name="varos" required>
-            <input type="text" id="lakcim-utca" placeholder="Utca, hsz., em./ajtó" size="40" name="utca" required>
+            <label>Lakcím:</label>
+            <input type="text" inputmode="numeric" id="iranyitoszam" name="iranyitoszam" placeholder="Irányítószám" value="8420" required style="width: 80px;">
+            <input type="text" id="varos" name="varos" placeholder="Város" value="Zirc" required>
+            <input type="text" id="utca" name="utca" placeholder="Utca, házszám, ajtó" size="30" required>
             <br><br>
 
-            <label for="tel-korzet">Telefonszám:</label>
-            <input type="text" id="tel-orszag" value="+36" size="3" readonly>
-            <input type="text" inputmode="numeric" name="tel_korzet" required id="tel-korzet" placeholder="30" oninput="if(this.value.length >= 2) document.getElementById('tel-szam').focus();">
-            <input type="text" inputmode="numeric" name="tel_szam" required id="tel-szam" placeholder="1234567">
+            <label>Telefonszám:</label>
+            <input type="text" value="+36" size="3" disabled>
+            <input type="text" inputmode="numeric" id="tel_korzet" name="tel_korzet" placeholder="30" required maxlength="2" style="width: 40px;">
+            <input type="text" inputmode="numeric" id="tel_szam" name="tel_szam" placeholder="1234567" required maxlength="7" style="width: 100px;">
             <br><br>
 
-            <label for="email-cim">E-mail cím:</label>
-            <input type="email" id="email-cim" placeholder="pelda@email.hu" name="email" required>
+            <label for="email">E-mail cím:</label>
+            <input type="email" id="email" name="email" placeholder="pelda@email.hu" required>
             <br><br>
 
-            <label for="uzenet-szoveg">Kapcsolatfelvétel vagy ügyintézés oka:</label><br>
-            <textarea id="uzenet-szoveg" maxlength="1000" rows="5" cols="60" name="uzenet" required oninput="document.getElementById('szamlalo').innerText = this.value.length"></textarea>
+            <label for="uzenet">Bejelentés oka:</label><br>
+            <textarea id="uzenet" name="uzenet" maxlength="1000" rows="5" style="width: 100%; box-sizing: border-box;" required></textarea>
             <br>
-            <span>Karakterszám: <span id="szamlalo">0</span> / 1000</span>
+            <span>Karakterek: <span id="szamlalo">0</span> / 1000</span>
             <br><br>
 
-            <div id="adatvedelmi-igenyles">
-                <label>
-                    <input type="checkbox" id="adatvedelem">
-                    <span>Elolvastam és elfogadom az <a href="#" id="aszf-link">adatvédelmi tájékoztatót</a>.</span>
+            <div id="gdpr-box">
+                <label style="cursor: pointer;">
+                    <input type="checkbox" id="adatvedelem" required>
+                    <span>Elolvastam és elfogadom a tájékoztatót.</span>
                 </label>
             </div>
-            <button id="bekuldogomb" type="submit">Beküldés</button> 
+            <br>
+            <button id="submit-btn" type="submit" style="padding: 12px 25px; cursor: pointer; background: #1e3a8a; color: white; border: none; border-radius: 5px;">Beküldés</button> 
         </form>
     </div>
 
     <script>
+    const modal = document.getElementById("aszf-modal");
+    const form = document.getElementById("main-form");
 
-    const aszfModal = document.getElementById("aszf-modal");
-    const aszfOpen = document.getElementById("aszf-open");
-    const aszfClose = document.getElementById("aszf-close");
-    if(aszfOpen) aszfOpen.onclick = () => aszfModal.style.display = "block";
-    if(aszfClose) aszfClose.onclick = () => aszfModal.style.display = "none";
+    document.getElementById("aszf-open").onclick = () => modal.style.display = "block";
+    document.getElementById("aszf-close").onclick = () => modal.style.display = "none";
+    window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") modal.style.display = "none"; });
 
-    function errorShake(element) {
-        if (!element) return;
-        element.classList.add('shake-error');
-        setTimeout(() => element.classList.remove('shake-error'), 500);
-    }
+    const focusFlow = (id, next, limit) => {
+        document.getElementById(id).addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length >= limit) document.getElementById(next).focus();
+        });
+    };
+    focusFlow("szu_ev", "szu_honap", 4);
+    focusFlow("szu_honap", "szu_nap", 2);
+    focusFlow("szu_nap", "iranyitoszam", 2);
+    focusFlow("tel_korzet", "tel_szam", 2);
 
-    function checkAge() {
-    
-        const d = document.getElementById("szuletes-nap");
-        const m = document.getElementById("szuletes-honap");
-        const y = document.getElementById("szuletes-ev");
+    document.getElementById("uzenet").oninput = function() {
+        document.getElementById("szamlalo").innerText = this.value.length;
+    };
 
-        const day = parseInt(d.value, 10);
-        const month = parseInt(m.value, 10) - 1;
-        const year = parseInt(y.value, 10);
-
-        if (isNaN(day) || isNaN(month) || isNaN(year)) {
-            alert("Kérjük, töltse ki a születési dátumot!");
-            return false;
-        }
-
-        const birthDate = new Date(year, month, day);
-        const today = new Date();
-        
-        const isValid = birthDate.getFullYear() === year && birthDate.getMonth() === month && birthDate.getDate() === day;
-
-        if (!isValid || birthDate > today || year < 1900) {
-            alert("Érvénytelen születési dátum.");
-            return false;
-        }
-
-        let age = today.getFullYear() - birthDate.getFullYear();
-        if (today.getMonth() < month || (today.getMonth() === month && today.getDate() < day)) {
-            age--;
-        }
-
-        if (age < 18) {
-            alert("A bejelentőnek legalább 18 évesnek kell lennie.");
-            return false;
-        }
-        return true;
-    }
-
-    document.querySelector('form').addEventListener('submit', async (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        if (!checkAge()) return;
 
-        const checkbox = document.getElementById("adatvedelem");
-        if (checkbox && !checkbox.checked) {
-            alert("Kérjük, fogadja el az adatkezelési tájékoztatót!");
-            errorShake(checkbox.parentElement);
+        const reqs = form.querySelectorAll('[required]');
+        let ok = true;
+        reqs.forEach(el => {
+            if (!el.value.trim() || (el.type === 'checkbox' && !el.checked)) {
+                ok = false;
+                el.style.outline = "2px solid red";
+                setTimeout(() => el.style.outline = "none", 2000);
+            }
+        });
+
+        if (!ok) {
+            alert("Minden mező kitöltése kötelező!");
             return;
         }
 
-        const formData = new FormData(e.target);
-        const data = Object.fromEntries(formData.entries());
+        const y = parseInt(document.getElementById("szu_ev").value);
+        const m = parseInt(document.getElementById("szu_honap").value) - 1;
+        const d = parseInt(document.getElementById("szu_nap").value);
+        const bDate = new Date(y, m, d);
+        const now = new Date();
+        let age = now.getFullYear() - bDate.getFullYear();
+        if (now.getMonth() < m || (now.getMonth() === m && now.getDate() < d)) age--;
+
+        if (isNaN(age) || age < 18 || bDate > now || y < 1900) {
+            alert("Érvénytelen dátum vagy 18 év alatti életkor!");
+            return;
+        }
+
+        const data = Object.fromEntries(new FormData(form).entries());
 
         try {
-            const response = await fetch('/.netlify/functions/mentes', {
+            const res = await fetch('/.netlify/functions/mentes', {
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: { 'Content-Type': 'application/json' }
             });
 
-            if (response.ok) {
+            if (res.ok) {
                 alert('Sikeres beküldés!');
-                e.target.reset();
+                form.reset();
                 document.getElementById('szamlalo').innerText = "0";
             } else {
-                alert('Hiba történt a küldés során (Szerver hiba).');
+                alert('Szerver hiba történt.');
             }
-        } catch (error) {
-            alert('Hálózati hiba történt. Ellenőrizze az internetkapcsolatot!');
+        } catch (err) {
+            alert('Hálózati hiba!');
         }
     });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
