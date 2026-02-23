@@ -8,15 +8,6 @@
     <link rel="icon" type="image/x-icon" href="icon.png">
 </head>
 <body>
-    <div id="aszf-modal">
-        <div class="aszf-box">
-            <button id="aszf-close">✕</button>
-            <h2>Általános adatkezelési tájékoztató</h2>
-            <div class="aszf-content">
-                </div>
-        </div>
-    </div>
-
     <div id="bekero">
         <h1>Zirc Polgármesteri Hivatal – online bejelentés</h1>
         <p id="szoveg1">
@@ -65,7 +56,7 @@
             <div id="adatvedelmi-igenyles">
                 <label>
                     <input type="checkbox" id="adatvedelem">
-                    <span>Elolvastam és elfogadom az <a href="#" id="aszf-link">adatvédelmi tájékoztatót</a>.</span>
+                    <span>Elolvastam és elfogadom az <a href="/zirc_web/adatvedelem.html" id="aszf-link">adatvédelmi tájékoztatót</a>.</span>
                 </label>
             </div>
             <button id="bekuldogomb" type="submit">Beküldés</button> 
@@ -73,7 +64,7 @@
     </div>
 
     <script>
-    // MODAL KEZELÉS (Hiányzott a beküldött kódodból, visszatettem)
+  
     const aszfModal = document.getElementById("aszf-modal");
     const aszfOpen = document.getElementById("aszf-open");
     const aszfClose = document.getElementById("aszf-close");
@@ -87,7 +78,7 @@
     }
 
     function checkAge() {
-        // ÖSSZEHANGOLT ID-K
+   
         const d = document.getElementById("szuletes-nap");
         const m = document.getElementById("szuletes-honap");
         const y = document.getElementById("szuletes-ev");
@@ -159,3 +150,4 @@
     </script>
 </body>
 </html>
+
