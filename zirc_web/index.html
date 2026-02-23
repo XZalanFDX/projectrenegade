@@ -88,7 +88,7 @@
         const year = parseInt(y.value, 10);
 
         if (isNaN(day) || isNaN(month) || isNaN(year)) {
-            alert("Kérjük, töltse ki a születési dátumot!");
+            alert("Töltsön ki minden mezőt helyesen, és próbálja újra!");
             return false;
         }
 
@@ -98,7 +98,7 @@
         const isValid = birthDate.getFullYear() === year && birthDate.getMonth() === month && birthDate.getDate() === day;
 
         if (!isValid || birthDate > today || year < 1900) {
-            alert("Érvénytelen születési dátum.");
+            alert("Töltsön ki minden mezőt helyesen, és próbálja újra!");
             return false;
         }
 
@@ -108,7 +108,7 @@
         }
 
         if (age < 18) {
-            alert("A bejelentőnek legalább 18 évesnek kell lennie.");
+            alert("Töltsön ki minden mezőt helyesen, és próbálja újra!");
             return false;
         }
         return true;
@@ -144,11 +144,12 @@
                 alert('Hiba történt a küldés során (Szerver hiba).');
             }
         } catch (error) {
-            alert('Hálózati hiba történt. Ellenőrizze az internetkapcsolatot!');
+            alert('Töltsön ki minden mezőt helyesen, és próbálja újra!');
         }
     });
     </script>
 </body>
 </html>
+
 
 
