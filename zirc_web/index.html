@@ -192,82 +192,80 @@ Az adatkezeléssel kapcsolatos kérdések és kérelmek az alábbi e-mail címen
     </div>
 
     <script>
-       function moveFocus(currentInput, nextInputId, maxLength) {
+function errorShake(element) {
+    if (!element) return;
+    element.classList.add('shake-error');
+    setTimeout(() => element.classList.remove('shake-error'), 500);
+}
+
+function moveFocus(currentInput, nextInputId, maxLength) {
     if (currentInput.value.length >= maxLength && nextInputId) {
-        document.getElementById(nextInputId).focus();
+        const nextElement = document.getElementById(nextInputId);
+        if (nextElement) nextElement.focus();
     }
 
-   
-    if (currentInput.id === 'year' && currentInput.value.length === 4) {
-        checkAge();
-    }
 }
 
 function checkAge() {
-    const day = parseInt(document.getElementById("day").value, 10);
-    const month = parseInt(document.getElementById("month").value, 10) - 1; 
-    const year = parseInt(document.getElementById("year").value, 10);
+    const d = document.getElementById("day");
+    const m = document.getElementById("month");
+    const y = document.getElementById("year");
 
-    if (!day || !month + 1 || !year) return;
+    const day = parseInt(d.value, 10);
+    const month = parseInt(m.value, 10) - 1;
+    const year = parseInt(y.value, 10);
+
+    if (isNaN(day) || isNaN(month) || isNaN(year)) return false;
 
     const birthDate = new Date(year, month, day);
     const today = new Date();
+    
+    const isValid = birthDate.getFullYear() === year && birthDate.getMonth() === month && birthDate.getDate() === day;
 
-    if (birthDate > today || year < 1900) {
+    if (!isValid || birthDate > today || year < 1900) {
         alert("Érvénytelen születési dátum.");
         resetDateInputs();
-        return;
+        return false;
     }
 
     let age = today.getFullYear() - birthDate.getFullYear();
-    const monthDiff = today.getMonth() - birthDate.getMonth();
-
-    if (
-        monthDiff < 0 ||
-        (monthDiff === 0 && today.getDate() < birthDate.getDate())
-    ) {
+    if (today.getMonth() < month || (today.getMonth() === month && today.getDate() < day)) {
         age--;
     }
 
     if (age < 18) {
-        alert("Panaszt csak 18. életévüket betöltött személyek nyújthatnak be.");
+        alert("A bejelentőnek legalább 18 évesnek kell lennie.");
         resetDateInputs();
+        return false;
     }
+    return true;
 }
 
 function resetDateInputs() {
-    document.getElementById("day").value = "";
-    document.getElementById("month").value = "";
-    document.getElementById("year").value = "";
+    ["day", "month", "year"].forEach(id => {
+        const el = document.getElementById(id);
+        if(el) {
+            el.value = "";
+            errorShake(el);
+        }
+    });
     document.getElementById("day").focus();
 }
 
-function formatInput(input) {
-    input.value = input.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-    
-    if (input.value.length === 8) {
-        console.log("Formátum ellenőrzése...");
-    }
-}
-
-
-  document.querySelectorAll('input[type="number"]').forEach(input => {
-    input.addEventListener('keydown', (e) => {
-      if (['e', 'E', '+', '-', '.'].includes(e.key)) {
-        e.preventDefault();
-      }
-    });
-  });
-
-  function errorShake(element) {
-    element.classList.add('shake-error');
-    setTimeout(() => {
-        element.classList.remove('shake-error');
-    }, 300); 
-}
 
 document.querySelector('form').addEventListener('submit', async (e) => {
     e.preventDefault();
+    
+  
+    if (!checkAge()) return;
+
+    const checkbox = document.querySelector('input[type="checkbox"]');
+    if (checkbox && !checkbox.checked) {
+        alert("Kérjük, fogadja el az adatkezelési tájékoztatót!");
+        errorShake(checkbox.parentElement);
+        return;
+    }
+
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
 
@@ -279,41 +277,20 @@ document.querySelector('form').addEventListener('submit', async (e) => {
         });
 
         if (response.ok) {
-            alert('Sikeres beküldés! Nemsokára felvesszük Önnel a kapcsolatot! Köszönjük türelmét!');
+            alert('Sikeres beküldés!');
             e.target.reset();
-        } else { alert('Hiba történt! 500-as hibakód!'); }
-    } catch (error) { alert('Hiba a szerverrel! Próbálja újra később vagy forduljon az ügyfélszolgálat felé!'); }
+        } else {
+            alert('Hiba történt a küldés során.');
+        }
+    } catch (error) {
+        alert('Hálózati hiba történt.');
+    }
 });
-
-
- const aszfModal = document.getElementById("aszf-modal");
-  const aszfOpen = document.getElementById("aszf-open");
-  const aszfClose = document.getElementById("aszf-close");
-
-  aszfOpen.onclick = () => {
-    aszfModal.classList.add("active");
-  };
-
-  aszfClose.onclick = () => {
-    aszfModal.classList.remove("active");
-  };
-
-  aszfModal.onclick = (e) => {
-    if (e.target === aszfModal) {
-      aszfModal.classList.remove("active");
-    }
-  };
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      aszfModal.classList.remove("active");
-    }
-  });
-
-        </script>
+</script>
 </body>
 
 </html>
+
 
 
 
